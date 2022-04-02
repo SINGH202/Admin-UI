@@ -1,0 +1,36 @@
+.SearchBar{
+    width:98%;
+    padding:5px;
+    
+}
+.buttonDiv{
+    width: 98%;
+    border:  1.5px dashed red;
+    height: 42px;
+    display: flex;
+}
+.circularBtn{
+    text-decoration: none;
+    background-color: transparent;
+    height: 30px;
+    font-size: 16px;
+    width: 30px;
+    border-radius: 999px;
+}
+.deleteBtn{
+    width: fit-content;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-right: 20%;
+    margin-left: 5%;
+}
+.circularBtnDiv{
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin-top: 5px;
+}
+
+table{
+    width: 98%;
+}

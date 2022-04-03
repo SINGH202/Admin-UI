@@ -1,11 +1,11 @@
-export const GET_ADMIN_DATA = "GET_ADMIN_DATA";
+export const GET_DATA = "GET_DATA";
 
 export const SEARCH_DATA = "SEARCH_DATA";
 
-export const EDIT_ADMIN_DATA = "EDIT_ADMIN_DATA";
+export const EDIT_DATA = "EDIT_DATA";
 
-export const DELETE_SINGLE_DATA = "DELETE_SINGLE_DATA";
+export const DELETE_SINGLE = "DELETE_SINGLE";
 
-export const DELETE_MULTIPLE_DATA = "DELETE_MULTIPLE_DATA";
+export const DELETE_MULTIPLE = "DELETE_MULTIPLE";
 
 export const SET_PAGE = "SET_PAGE";

@@ -1,11 +1,11 @@
 import {
-    GET_ADMIN_DATA,
+    GET_DATA,
     SEARCH_DATA,
-    EDIT_ADMIN_DATA,
-    DELETE_SINGLE_DATA,
-    DELETE_MULTIPLE_DATA,
-    SET_PAGE
-} from './ActionTypes.js';
+    EDIT_DATA,
+    DELETE_SINGLE,
+    DELETE_MULTIPLE,
+    SET_PAGE,
+} from './ActionTypes.js'
 
 const initState = {
     data: [],
@@ -15,7 +15,7 @@ const initState = {
 
 export const Reducer = (store = initState, action) => {
     switch(action.type){
-        case GET_ADMIN_DATA:
+        case GET_DATA:
             return {
                 ...store,
                 data:action.payload,
@@ -24,25 +24,25 @@ export const Reducer = (store = initState, action) => {
         case SEARCH_DATA:
             return {
                 ...store,
-                filterData:[...searchDataInAllFields(store.data,action.payload)],
+                filterData:[...searchDataInFields(store.data,action.payload)],
             }
-        case EDIT_ADMIN_DATA:
+        case EDIT_DATA:
             return {
                 ...store,
                 data:[...editData(store.data,action.payload)],
                 filterData:[...editData(store.filterData,action.payload)],
             }
-        case DELETE_SINGLE_DATA:
+        case DELETE_SINGLE:
             return {
                 ...store,
                 data:[...deleteData(store.data,action.payload)],
                 filterData:[...deleteData(store.filterData,action.payload)], 
             }
-        case DELETE_MULTIPLE_DATA:
+        case DELETE_MULTIPLE:
             return {
                 ...store,
-                data:[...deleteMultipleAdminData(store.data,action.payload)],
-                filterData:[...deleteMultipleAdminData(store.filterData,action.payload)], 
+                data:[...deleteMultipleData(store.data,action.payload)],
+                filterData:[...deleteMultipleData(store.filterData,action.payload)], 
             }
         case SET_PAGE:
             return {
@@ -55,7 +55,7 @@ export const Reducer = (store = initState, action) => {
 }
 
 
-const searchDataInAllFields = (allData,input) => {
+const searchDataInFields = (allData,input) => {
     if (input.length === 0){
         return allData;
     }
@@ -73,7 +73,7 @@ const editData = (allData,updatadData) => {
     return updatedData;
 }
 
-const deleteMultipleAdminData = (allData,forDeletedData) => {
+const deleteMultipleData = (allData,forDeletedData) => {
     let newDatas;
     for (let i = 0; i < forDeletedData.length; i++){
         if (i === 0){

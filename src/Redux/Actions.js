@@ -1,14 +1,14 @@
 import {
-    GET_ADMIN_DATA,
+    GET_DATA,
     SEARCH_DATA,
-    EDIT_ADMIN_DATA,
-    DELETE_SINGLE_DATA,
-    DELETE_MULTIPLE_DATA,
+    EDIT_DATA,
+    DELETE_SINGLE,
+    DELETE_MULTIPLE,
     SET_PAGE,
 } from './ActionTypes.js';
 
 export const getAdminData = (payload) => ({
-    type: GET_ADMIN_DATA,
+    type: GET_DATA,
     payload,
 })
 
@@ -18,17 +18,17 @@ export const searchData = (payload) => ({
 })
 
 export const editAdminData = (payload) => ({
-    type: EDIT_ADMIN_DATA,
+    type: EDIT_DATA,
     payload,
 })
 
 export const deleteSingleData = (payload) => ({
-    type: DELETE_SINGLE_DATA,
+    type: DELETE_SINGLE,
     payload,
 })
 
 export const deleteMultipleData = (payload) => ({
-    type: DELETE_MULTIPLE_DATA,
+    type: DELETE_MULTIPLE,
     payload,
 })
 

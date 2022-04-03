@@ -2,10 +2,13 @@ import React, { useEffect, useState } from "react";
 import "./styles.css"
 import axios from "axios";
 import { FaEdit, FaTrash } from "react-icons/fa";
+import { Editform } from "./EditForm";
 
 export const Elements = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [showForm, setShowForm] = useState(false)
+  const [changeColor, setChangeColor]  = useState(false)
 
   function getData() {
     setLoading(true);
@@ -28,23 +31,32 @@ export const Elements = () => {
     getData();
   }, []);
 
+
+  function handleForm(){
+    setShowForm(!showForm)
+  }
+
+  function handleCheckBox(e){
+    setChangeColor(!changeColor)
+    // style={changeColor ? {backgroundColor:"silver"} :{backgroundColor:"transparent"}}
+  }
+
+
   return (
-    <>
-      <h3>elements</h3>
+    <div className="elementsDiv">
       {loading && <h2>Loading...</h2>}
       <table>
         <thead>
           <tr>
-            <td>
+            <th className="checkBoxEle">
               <input type="checkbox" name="" id="" />
-            </td>
-            <th>Name</th>
-            <th>Email</th>
+            </th>
+            <th className="nameElement">Name</th>
+            <th className="emailElement">Email</th>
             <th>Role</th>
-            <th>Action</th>
+            <th className="actionEle">Action</th>
           </tr>
         </thead>
-        <hr />
         <tbody>
           {!loading &&
             data &&
@@ -52,22 +64,23 @@ export const Elements = () => {
             
                 return (
                   
-                <tr key={info.id}>
-                  <td>
+                <tr key={info.id}  >
+                  <td className="checkBoxEle">
                     {" "}
-                    <input type="checkbox" name="" id="" />
+                    <input type="checkbox" name="" id="" onChange={handleCheckBox}/>
                   </td>
-                  <td>{info.name}</td>
-                  <td>{info.email}</td>
+                  <td className="nameElement">{info.name}</td>
+                  <td className="emailElement">{info.email}</td>
                   <td>{info.role}</td>
-                  <td><FaEdit/> <FaTrash/></td>
+                  <td className="iconsEle"><FaEdit onClick={handleForm}/> <FaTrash/></td>
                 </tr>
                 
               );
             })}
         </tbody>
       </table>
+      <div>{showForm ? <Editform showForm={showForm}/> : null}</div>
       
-    </>
+    </div>
   );
 };

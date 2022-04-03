@@ -1,7 +1,13 @@
 .SearchBar{
     width:98%;
     padding:5px;
-    
+    margin: 10px;
+}
+.nameElement{
+    padding-left: 12%;
+}
+.emailElement{
+    width: 25%;
 }
 .buttonDiv{
     width: 98%;
@@ -11,18 +17,24 @@
 }
 .circularBtn{
     text-decoration: none;
-    background-color: transparent;
     height: 30px;
     font-size: 16px;
     width: 30px;
     border-radius: 999px;
+    border-color: #1890ff;
+    background-color: #1890ff;
+    color: white;
 }
 .deleteBtn{
     width: fit-content;
-    border: 1px solid black;
-    border-radius: 5px;
+    border: 1px solid #ff5171;
+    border-radius: 15px;
     margin-right: 20%;
     margin-left: 5%;
+    height: 30px;
+    margin-top: 5px;
+    background-color: #ff5171;
+    color: white;
 }
 .circularBtnDiv{
     display: flex;
@@ -33,4 +45,70 @@
 
 table{
     width: 98%;
+    padding: 10px;
+}
+thead{
+    padding-bottom: 10px;
+}
+thead, tbody tr td{
+    text-align: left;
+    /* border: 1px solid black; */
+}
+.checkBoxEle{
+    padding-left: 20px;
+    width: 5%;
+}
+.iconsEle{
+    
+    display: flex;
+    justify-content: space-evenly;
+}
+.actionEle{
+    text-align: center;
+}
+#changeClr{
+    background-color: gray;
+    color: white;
+}
+.formDiv{
+    height: 220px;
+    width: 300px;
+    position: absolute;
+	top: 0px;
+	bottom: 0px;
+	right:0;
+	left: 40%;
+	float: none;
+	display: block;
+	clear: none;
+	z-index: auto;
+    border: 1px solid transparent;
+    background-color:aqua;
+    border-radius: 10px;
+}
+.formDiv input{
+    height: 30px;
+    width: 80%;
+    margin: 5px;
+    border-radius: 10px;
+    border-color: transparent;
+    padding: 2px;
+}
+.formDiv select{
+    height: 25px;
+    width: 50%;
+    border-radius: 7px;
+    border-color: transparent;
+}
+.formDiv label{
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: 500;
+}
+.elementsDiv{
+    position: relative;
+}
+.crossIcon{
+    /* border: 1px solid black; */
+    margin: 9px 5px 2px 90%;
 }

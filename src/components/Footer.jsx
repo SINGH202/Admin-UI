@@ -6,7 +6,7 @@ export const Footer = () => {
     <div className="buttonDiv">
       <button className="deleteBtn">Delete Selected</button>
       <div className="circularBtnDiv">
-      <button className="circularBtn">{"<<"}</button>
+      <button className="circularBtn">{"<< "}</button>
       <button className="circularBtn">{"<"}</button>
       <button className="circularBtn">1</button>
       <button className="circularBtn">2</button>

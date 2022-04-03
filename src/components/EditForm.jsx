@@ -1,16 +1,27 @@
 import React, {useState} from "react";
 import "./styles.css"
 import { ImCross } from "react-icons/im"
+import { useDispatch } from "react-redux";
+import { editAdminData } from "../Redux/Actions";
 
-export const Editform = (props) =>{
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [role, setRole] = useState("member");
-    const [form, setForm] = useState(props.showForm)
+export const Editform = ({showForm,id,name,email,role}) =>{
+    const dispatch = useDispatch()
+    const [editname, setName] = useState(name);
+    const [editemail, setEmail] = useState(email);
+    const [editrole, setRole] = useState(role);
+    const [form, setForm] = useState(showForm)
 
     function handleSubmit(event){
         event.preventDefault()
-        alert([name, email, role])
+        // alert([name, email, role])
+        let obj_to_update = {
+            id: id,
+            name: editname,
+            email: editemail,
+            role: editrole,
+        }
+        dispatch(editAdminData(obj_to_update))
+
     }
 
     function handleNameChange(e){
@@ -31,17 +42,19 @@ export const Editform = (props) =>{
                 setForm(!form)
             }}/>
             <form className="form" onSubmit={handleSubmit}>
-                <input type="text" placeholder="Enter new name" onChange={handleNameChange}/>
+                <input type="text" value={editname} placeholder="Enter new name" onChange={handleNameChange}/>
                 <br />
-                <input type="text" placeholder="Enter new email" onChange={handleEmailChange}/>
+                <input type="text" value={editemail} placeholder="Enter new email" onChange={handleEmailChange}/>
                 <br />
                 <label>Select Role : </label>
-                <select onClick={handleRoleChange}>
+                <select value = {editrole} onClick={handleRoleChange}>
                     <option value="member">Member</option>
                     <option value="admin">Admin</option>
                 </select>
                 <br />
-                <input type="submit" value="Update" />
+                <input type="submit" value="Update" onClick={() =>{
+                    setForm(!form)
+                }}/>
             </form>
         </div>
     )

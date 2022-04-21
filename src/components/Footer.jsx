@@ -6,6 +6,7 @@ export const Footer = ({multiple_delete_ids}) => {
   // console.log(multiple_delete_ids)
   const filterData = useSelector((store) => store.filterData)
   const page = useSelector((store) => store.page)
+
   const dispatch = useDispatch()
   const number_of_data = 10;
   const max_page = Math.ceil(filterData.length / number_of_data)
@@ -41,14 +42,10 @@ export const Footer = ({multiple_delete_ids}) => {
           onClick={()=>handleMovePage(-single_move)}
           disabled = {page - single_move < min_page}
           className="circularBtn">{"<"}</button>
-      <button
+      {Array.from({length: max_page}, (v, i) => <button
           onClick={handleSetPage}
-          className="circularBtn"
-          value='1'>1</button>
-      <button disabled ={max_page < 2} onClick={handleSetPage} value='2' className="circularBtn">2</button>
-      <button disabled ={max_page < 3} onClick={handleSetPage} value='3' className="circularBtn">3</button>
-      <button disabled ={max_page < 4} onClick={handleSetPage} value='4' className="circularBtn">4</button>
-      <button disabled ={max_page < 5} onClick={handleSetPage} value='5' className="circularBtn">5</button>
+          className={page == i+1  ? "selectedPage " : "circularBtn"}
+          value={i+1}>{i+1}</button>)}
       <button disabled = {page + single_move > max_page} onClick={()=>handleMovePage(single_move)} className="circularBtn">{">"}</button>
       <button disabled = {page + double_move > max_page} onClick={()=>handleMovePage(double_move)} className="circularBtn">{">>"}</button>
       </div>

@@ -18,8 +18,8 @@ export const Elements = () => {
   const [showForm, setShowForm] = useState(false)
   const number_of_data = 10;
   let data = [];
-  let startIndex = (page - 1) * number_of_data;
-  let endIndex = startIndex + number_of_data;
+  let startIndex = (page - 1) * number_of_data; //0
+  let endIndex = startIndex + number_of_data; // 10
   data1.slice([startIndex], [endIndex]).map((item, i) => {
     data.push(item);
   });  
@@ -105,7 +105,7 @@ export const Elements = () => {
             
                 return (
                   
-                <tr key={info.id}>
+                <tr key={info.id} className={ multiple_delete_ids.includes(info.id) ? "selectedRow"  : "" }>
                   <td>
                     {" "}
                     <input onChange={onCheckboxClick} type="checkbox" name="" id={info.id} />

@@ -74,6 +74,7 @@ thead, tbody tr td{
     
     display: flex;
     justify-content: space-evenly;
+    padding-top: 13px;
 }
 .actionEle{
     text-align: center;
@@ -129,3 +130,10 @@ thead, tbody tr td{
     background-color: #fbaaf4fc;
 }
 
+tr td{
+    border-bottom: 1px solid gray;
+}
+
+tr th{
+    border-bottom: 1px solid gray;
+}
